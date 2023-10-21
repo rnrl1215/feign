@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name = "UserClient", url = "http://localhost:8080/v1/users")
+@FeignClient(name = "UserClient", url = "http://localhost:8080")
 public interface FeignUserClient {
-    @PostMapping("/{id}")
+    @PostMapping("/v1/users/{id}")
     ResponseEntity<UserDto> findUserId(@PathVariable(name = "id") String id, @RequestBody String body);
 }
